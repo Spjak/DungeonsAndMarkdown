@@ -30,11 +30,11 @@
     "commands": [
       {
         "command": "dungeonsandmarkdown.generate",
-        "title": "D&M: Generate document"
+        "title": "D&M: Generate"
       },
       {
         "command": "dungeonsandmarkdown.preview",
-        "title": "D&M: Preview document"
+        "title": "D&M: Preview"
       }
     ]
   },
