@@ -15,6 +15,7 @@
     "Other"
   ],
   "keywords": [
+    "dnd",
     "dungeons",
     "dragons",
     "homebrew",
@@ -30,11 +31,11 @@
     "commands": [
       {
         "command": "dungeonsandmarkdown.generate",
-        "title": "D&M: Generate"
+        "title": "DnM: Generate"
       },
       {
         "command": "dungeonsandmarkdown.preview",
-        "title": "D&M: Preview"
+        "title": "DnM: Preview"
       }
     ]
   },

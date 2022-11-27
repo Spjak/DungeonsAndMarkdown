@@ -12,9 +12,9 @@ Inspired by [homebrewery-vcsode](https://marketplace.visualstudio.com/items?item
 
 Write structured documents in (extended) Markdown and generate beautiful pages in the style of the Dungeons & Dragons books and resources.
 
-With a Markdown document open, select `D&M: Preview` to open a preview of the generated page(s). The preview does not auto-update on save, but requires the command to be re-run.
+With a Markdown document open, select `DnM: Preview` to open a preview of the generated page(s). The preview does not auto-update on save, but requires the command to be re-run.
 
-Use `D&M: Generate` to create a html page. Use a browser to print as PDF for exporting.
+Use `DnM: Generate` to create a html page. Use a browser to print as PDF for exporting.
 
 ## Known issues
 * Images and external links may not render properly in the preview, due to sandbox limitations.
