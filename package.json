@@ -1,23 +1,35 @@
 {
   "name": "dungeonsandmarkdown",
-  "displayName": "DungeonsAndMarkdown",
-  "description": "",
+  "displayName": "Dungeons&Markdown",
+  "description": "Generate D&D style documents from Markdown",
   "version": "0.0.1",
+  "publisher": "SpjakSoftware",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/Spjak/DungeonsAndMarkdown"
+	},
   "engines": {
     "vscode": "^1.73.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+		"dungeons",
+		"dragons",
+		"homebrew",
+		"homebrewery",
+		"markdown"
+	],
   "activationEvents": [
-    "onCommand:dungeonsandmarkdown.helloWorld"
+    "onCommand:dungeonsandmarkdown.generate"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "dungeonsandmarkdown.helloWorld",
-        "title": "Hello World"
+        "command": "dungeonsandmarkdown.generate",
+        "title": "D&M: Generate document"
       }
     ]
   },
