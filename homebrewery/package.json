@@ -1,0 +1,25 @@
+{
+  "name": "homebrewery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spjak/DungeonsAndMarkdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spjak/DungeonsAndMarkdown/issues"
+  },
+  "homepage": "https://github.com/Spjak/DungeonsAndMarkdown#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "marked": "^4.2.3",
+    "marked-extended-tables": "^1.0.5"
+  }
+}

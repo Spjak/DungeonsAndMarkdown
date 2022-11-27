@@ -5,9 +5,9 @@
   "version": "0.0.1",
   "publisher": "SpjakSoftware",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/Spjak/DungeonsAndMarkdown"
-	},
+    "type": "git",
+    "url": "https://github.com/Spjak/DungeonsAndMarkdown"
+  },
   "engines": {
     "vscode": "^1.73.0"
   },
@@ -15,12 +15,12 @@
     "Other"
   ],
   "keywords": [
-		"dungeons",
-		"dragons",
-		"homebrew",
-		"homebrewery",
-		"markdown"
-	],
+    "dungeons",
+    "dragons",
+    "homebrew",
+    "homebrewery",
+    "markdown"
+  ],
   "activationEvents": [
     "onCommand:dungeonsandmarkdown.generate"
   ],
@@ -39,7 +39,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "install-all": "npm ci --workspaces --if-present"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
@@ -54,9 +55,7 @@
     "mocha": "^9.1.3",
     "typescript": "^4.5.4"
   },
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "marked": "^4.2.3",
-    "marked-extended-tables": "^1.0.5"
-  }
+  "workspaces": [
+    "homebrewery"
+  ]
 }
