@@ -22,7 +22,8 @@
     "markdown"
   ],
   "activationEvents": [
-    "onCommand:dungeonsandmarkdown.generate"
+    "onCommand:dungeonsandmarkdown.generate",
+    "onCommand:dungeonsandmarkdown.preview"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -30,6 +31,10 @@
       {
         "command": "dungeonsandmarkdown.generate",
         "title": "D&M: Generate document"
+      },
+      {
+        "command": "dungeonsandmarkdown.preview",
+        "title": "D&M: Preview document"
       }
     ]
   },

@@ -17,6 +17,23 @@ const TEMPLATE_HTML = `
                 <div class="brewRenderer">
                     <link href="https://homebrewery.naturalcrit.com/themes/V3/Blank/style.css" rel="stylesheet">
                     <link href="https://homebrewery.naturalcrit.com/themes/V3/5ePHB/style.css" rel="stylesheet">
+                    <style>
+                    .page p {
+                        color: black
+                    }
+                    .page li {
+                        color: black
+                    }
+                    .page table {
+                        color: black
+                    }
+                    .page h5 {
+                        color: black
+                    }
+                    .page dl {
+                        color: black
+                    }
+                    </style>
                     <div class="pages">
                         {{ body }}
                     </div>
@@ -75,10 +92,27 @@ function generateFile(){
 	res? fs.writeFileSync(outPath, TEMPLATE_HTML.replace('{{ body }}', res), 'utf8') : null
 }
 
+function previewFile() {
+    let editor = vscode.window.activeTextEditor
+    let doc = editor?.document
+    let text = editor?.document.getText()
+	let res = text? generateHTML(text) : null
+    const panel = vscode.window.createWebviewPanel(
+        'preview',
+        `${doc?.fileName} - preview`,
+        vscode.ViewColumn.One,
+        {}
+    )
+    res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+    
+}
+
 export function activate(context: vscode.ExtensionContext) {
 
 	let generateCommand = vscode.commands.registerCommand('dungeonsandmarkdown.generate', generateFile)
 	context.subscriptions.push(generateCommand)
+    let previewCommand = vscode.commands.registerCommand('dungeonsandmarkdown.preview', previewFile)
+    context.subscriptions.push(previewCommand)
 }
 
 export function deactivate() {}
