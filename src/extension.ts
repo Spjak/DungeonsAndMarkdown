@@ -92,26 +92,41 @@ function generateFile(){
 	res? fs.writeFileSync(outPath, TEMPLATE_HTML.replace('{{ body }}', res), 'utf8') : null
 }
 
-function previewFile() {
-    let editor = vscode.window.activeTextEditor
-    let doc = editor?.document
-    let text = editor?.document.getText()
-	let res = text? generateHTML(text) : null
-    const panel = vscode.window.createWebviewPanel(
-        'preview',
-        `${doc?.fileName} - preview`,
-        vscode.ViewColumn.One,
-        {}
-    )
-    res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
-    
-}
-
 export function activate(context: vscode.ExtensionContext) {
-
+    let currentPanel: vscode.WebviewPanel | undefined = undefined;
 	let generateCommand = vscode.commands.registerCommand('dungeonsandmarkdown.generate', generateFile)
 	context.subscriptions.push(generateCommand)
-    let previewCommand = vscode.commands.registerCommand('dungeonsandmarkdown.preview', previewFile)
+
+    let previewCommand = vscode.commands.registerCommand('dungeonsandmarkdown.preview', () => {
+        let editor = vscode.window.activeTextEditor
+        let text = editor?.document.getText()
+        let res = text? generateHTML(text) : null
+        
+        const columnToShowIn = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined
+        if (currentPanel) {
+            // If we already have a panel, show it in the target column
+            currentPanel.reveal()
+            } 
+        else {
+            // Otherwise, create a new panel
+            currentPanel = vscode.window.createWebviewPanel(
+                'preview',
+                'D&M: Preview',
+                columnToShowIn || vscode.ViewColumn.One,
+                {}
+            );
+            res? currentPanel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+    
+            // Reset when the current panel is closed
+            currentPanel.onDidDispose(
+                () => {
+                currentPanel = undefined
+                },
+                null,
+                context.subscriptions
+            )
+        }
+    })
     context.subscriptions.push(previewCommand)
 }
 
