@@ -8,15 +8,15 @@ const TEMPLATE_HTML = `
     <head>
         <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
-        <link href='https://homebrewery.naturalcrit.com/homebrew/bundle.css' rel='stylesheet' />
+        <link href='https://assets.dungeonsandmarkdown.spjak.com/bundle.css' rel='stylesheet' />
         <base target="_blank">
     </head>
     <body>
         <div>
             <div class="frame-content">
                 <div class="brewRenderer">
-                    <link href="https://homebrewery.naturalcrit.com/themes/V3/Blank/style.css" rel="stylesheet">
-                    <link href="https://homebrewery.naturalcrit.com/themes/V3/5ePHB/style.css" rel="stylesheet">
+                    <link href="https://assets.dungeonsandmarkdown.spjak.com/themes/V3/Blank/style.css" rel="stylesheet">
+                    <link href="https://assets.dungeonsandmarkdown.spjak.com/themes/V3/5ePHB/style.css" rel="stylesheet">
                     <style>
                     .page p {
                         color: black
@@ -32,6 +32,15 @@ const TEMPLATE_HTML = `
                     }
                     .page dl {
                         color: black
+                    }
+                    .page .monster hr:last-of-type~:is(dl,p) {
+                        color: black
+                    }
+                    .page #example + table td {
+                        border:1px dashed #00000030;
+                    }
+                    .page {
+                        padding-bottom : 1.1cm
                     }
                     </style>
                     <div class="pages">
@@ -92,6 +101,18 @@ function generateFile(){
 	res? fs.writeFileSync(outPath, TEMPLATE_HTML.replace('{{ body }}', res), 'utf8') : null
 }
 
+function redraw(panel: vscode.WebviewPanel) {
+    setTimeout(() => {  
+        let editor = vscode.window.activeTextEditor
+        let text = editor?.document.getText()
+        let res = text? generateHTML(text) : null
+        if (panel) {
+            res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+        }
+        redraw(panel)
+    }, 1000)
+}
+
 export function activate(context: vscode.ExtensionContext) {
     let currentPanel: vscode.WebviewPanel | undefined = undefined;
 	let generateCommand = vscode.commands.registerCommand('dungeonsandmarkdown.generate', generateFile)
@@ -126,7 +147,9 @@ export function activate(context: vscode.ExtensionContext) {
                 context.subscriptions
             )
         }
+        redraw(currentPanel)
     })
+
     context.subscriptions.push(previewCommand)
 }
 
