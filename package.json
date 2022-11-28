@@ -1,6 +1,6 @@
 {
   "name": "dungeonsandmarkdown",
-  "displayName": "Dungeons&Markdown",
+  "displayName": "Dungeons & Markdown",
   "description": "Generate D&D style documents from Markdown",
   "version": "0.0.1",
   "publisher": "SpjakSoftware",
@@ -31,11 +31,11 @@
     "commands": [
       {
         "command": "dungeonsandmarkdown.generate",
-        "title": "DnM: Generate"
+        "title": "Dungeons & Markdown: Generate"
       },
       {
         "command": "dungeonsandmarkdown.preview",
-        "title": "DnM: Preview"
+        "title": "Dungeons & Markdown: Preview"
       }
     ]
   },
