@@ -2,7 +2,9 @@
 
 Generate D&D style documents from Markdown
 
-VSCode extension implementation of [homebrewery](https://homebrewery.naturalcrit.com/)
+![image](https://assets.dungeonsandmarkdown.spjak.com/dnm.gif)
+
+This is a VSCode extension implementation of the online editor at [homebrewery](https://homebrewery.naturalcrit.com/)
 
 Supports the full list of the extended Markdown syntax elements in Homebrewery Version 3.
 
@@ -12,16 +14,25 @@ Inspired by [homebrewery-vcsode](https://marketplace.visualstudio.com/items?item
 
 Write structured documents in (extended) Markdown and generate beautiful pages in the style of the Dungeons & Dragons books and resources.
 
-With a Markdown document open, select `DnM: Preview` to open a preview of the generated page(s). The preview does not auto-update on save, but requires the command to be re-run.
+Provides live preview while editing as well as export to plain HTML for PDF printing.
 
-Use `DnM: Generate` to create a html page. Use a browser to print as PDF for exporting.
+### Commands
+
+`Dungeons & Markdown: Preview` opens a live preview window.
+
+`Dungeons & Markdown: Generate HTML` generates a plain HTML file with the same name as the currently open Markdown file. 
+This can be opened in browser for printing to PDF or other export formats.
 
 ## Known issues
 * Images and external links may not render properly in the preview, due to sandbox limitations.
-* Preview page should live update, but this not possible with current implementation.
 
 ## Release Notes
 
+### 0.1.0
+
+- Preview window now live updates as markdown file is edited
+- Fixed font and styling issues, sometimes causing incorrect rendering
+
 ### 0.0.1
 
-Initial release
+- Initial release
