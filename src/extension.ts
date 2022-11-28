@@ -104,12 +104,17 @@ function generateFile(){
 function redraw(panel: vscode.WebviewPanel) {
     setTimeout(() => {  
         let editor = vscode.window.activeTextEditor
-        let text = editor?.document.getText()
-        let res = text? generateHTML(text) : null
-        if (panel) {
-            res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+        if (editor?.document.languageId !== 'markdown') {
+            redraw(panel)
         }
-        redraw(panel)
+        else {
+            let text = editor?.document.getText()
+            let res = text? generateHTML(text) : null
+            if (panel) {
+                res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+            }
+            redraw(panel)
+        }
     }, 1000)
 }
 
