@@ -45,6 +45,9 @@ const TEMPLATE_HTML = `
                     .page {
                         padding-bottom : 1.1cm
                     }
+                    .page .watermark {
+                        z-index: -500
+                    }
                     </style>
                     <div class="pages">
                         {{ body }}
