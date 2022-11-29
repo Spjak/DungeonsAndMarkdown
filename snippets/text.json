@@ -46,7 +46,7 @@
 	},
 	"Table Of Contents": {
 		"prefix": "dnm-toc",
-		"body": ["{{toc,wide","# Table Of Contents","","- ### [{{ Dungeons & Markdown}}{{ 1}}](#p1)","- [{{ Subheading }}{{ 1}}](#p1)","- [{{ Another subheading }}{{ 1}}](#p1)","- #### [{{ Features }}{{ 1}}](#p2)","- [{{ Preview}}{{ 1}}](#p2)","- [{{ Generate }}{{ 1}}](#p2)","}}"],
+		"body": ["{{toc,wide","# Table Of Contents","","- ### [{{ Dungeons & Markdown}}{{ 1}}](#p1)","- [{{ Subheading }}{{ 1}}](#p1)","- [{{ Another subheading }}{{ 1}}](#p1)","- #### [{{ Features }}{{ 2}}](#p2)","- [{{ Preview}}{{ 2}}](#p2)","- [{{ Generate }}{{ 2}}](#p2)","}}"],
 		"description": "Table of Contents (Manual edit)"
 	}
 }
