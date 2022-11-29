@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "publisher": "SpjakSoftware",
   "icon": "docs/icon.png",
+  "homepage": "https://dungeonsandmarkdown.spjak.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/Spjak/DungeonsAndMarkdown"
