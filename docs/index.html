@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
+        <link href='https://assets.dungeonsandmarkdown.spjak.com/bundle.css' rel='stylesheet' />
+        <base target="_blank">
+    </head>
+    <body>
+        <div>
+            <div class="frame-content">
+                <div class="brewRenderer">
+                    <link href="https://assets.dungeonsandmarkdown.spjak.com/themes/V3/Blank/style.css" rel="stylesheet">
+                    <link href="https://assets.dungeonsandmarkdown.spjak.com/themes/V3/5ePHB/style.css" rel="stylesheet">
+                    <style>
+                    .page p {
+                        color: black
+                    }
+                    .page li {
+                        color: black
+                    }
+                    .page table {
+                        color: black
+                    }
+                    .page h5 {
+                        color: black
+                    }
+                    .page h6 {
+                        color: black
+                    }
+                    .page dl {
+                        color: black
+                    }
+                    .page .monster hr:last-of-type~:is(dl,p) {
+                        color: black
+                    }
+                    .page #example + table td {
+                        border:1px dashed #00000030;
+                    }
+                    .page {
+                        padding-bottom : 1.1cm
+                    }
+                    </style>
+                    <div class="pages">
+                        
+		<div class="page" id="p1" key="0" >
+			<div class="columnWrapper"><style>
+.page#p1{ text-align:center; counter-increment: none; }
+.page#p1:after{ display:none; }
+.page:nth-child(2n) .pageNumber { left: inherit !important; right: 2px !important; }
+.page:nth-child(2n+1) .pageNumber { right: inherit !important; left: 2px !important; }
+.page:nth-child(2n)::after { transform: scaleX(1); }
+.page:nth-child(2n+1)::after { transform: scaleX(-1); }
+.page:nth-child(2n) .footnote { left: inherit; text-align: right; }
+.page:nth-child(2n+1) .footnote { left: 80px; text-align: left; }
+</style>
+
+<span class="inline-block "  style="margin-top:225px;"></span><h1 id="dungeons--markdown">Dungeons &amp; Markdown</h1>
+<span class="inline-block "  style="margin-top:25px;"></span><div class="block wide"  ><h5 id="generate-dd-style-documents-from-markdown">Generate D&amp;D style documents from Markdown</h5>
+<h6 id="a-vs-code-extension-based-on-homebrewery">A VS Code extension based on Homebrewery</h6>
+</div><p>&nbsp;</p>
+<div class='columnSplit'>  </div><p>&nbsp;</p>
+</div>
+		</div>
+		<div class="page" id="p2" key="1" >
+			<div class="columnWrapper"><h1 id="dungeons--markdown">Dungeons &amp; Markdown</h1>
+<p>Generate beautiful D&amp;D style documents with Markdown.</p>
+<p>Based on Homebrewery V3, regular Markdown syntax is supported, but also extended with a range of useful options.
+For convenience, most of this extended syntax is provided as snippets with this extension.</p>
+<p>Below are descriptions of these snippets and examples of what they can generate.</p>
+<h3 id="how-to-use-snippets">How to use snippets</h3>
+<p>When editing a Markdown document, press <code>CTRL+Space</code> or the assigned auto-complete hotkeys. All Dungeons &amp; Markdown snippets are prefixed with <em>dnm</em>, e.g. <code>dnm-class-table</code>.</p>
+<p>The snippets roughly match the options presented on the <a href="https://homebrewery.naturalcrit.com/">Homebrewery</a> web editor, but will generate the same output whenever used, where the web editor has a range of random content for each element.</p>
+<h3 id="images">Images</h3>
+<p>All images can be modfied to change size, location and opacity, using css-style properties.</p>
+<h5 id="snippets">Snippets</h5>
+<table><thead><tr><th align=left>Command</th>
+<th align=center>Effect</th>
+</tr></thead><tbody><tr><td align=left>dnm-image</td>
+<td align=center>Insert image</td>
+</tr><tr><td align=left>dnm-background-image</td>
+<td align=center>Insert background image</td>
+</tr><tr><td align=left>dnm-watermark</td>
+<td align=center>Add watermark text</td>
+</tr><tr><td align=left>dnm-watercolor</td>
+<td align=center>Add water stain or splatter</td>
+</tr></tbody></table><h4 id="dnm-image">dnm-image</h4>
+<p>Images can be added in-line and decorated with caption and artist credits
+<img class=" "  style="width:325px; mix-blend-mode:multiply;" src="https://s-media-cache-ak0.pinimg.com/736x/4a/81/79/4a8179462cfdf39054a418efd4cb743e.jpg" alt="cat warrior"></p>
+<div class="block artist"  style="position:relative; top:-230px; left:10px; margin-bottom:-30px;"><h5 id="cat-warrior">Cat Warrior</h5>
+<p><a href="https://www.artstation.com/tahra">Kyoung Hwan Kim</a></p>
+</div><div class='columnSplit'>  </div><h4 id="dnm-background-image">dnm-background-image</h4>
+<p>Background images will allow content on top. Make sure to consider text and image location to ensure readablility.
+<img class=" "  style="position:absolute; top:70px; right:100px; width:180px;" src="http://i.imgur.com/hMna6G0.png" alt="homebrew mug"> </p>
+<div class='blank'> </div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'> </div><h4 id="dnm-watermark">dnm-watermark</h4>
+<p>Watermark text will be calpitalized and positioned diagonally across the whole page. Avoid words with more than roughly 10 letters to avoid multiple lines of text.
+</p><span class="inline-block watermark"  >WATERMARK</span><div class='blank'> </div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'> </div><h4 id="dnm-watercolor">dnm-watercolor</h4>
+<p>Add a water splotch or splatter as a background image. Shapes are predefined but can be resized as any other image.</p>
+<p>There are 12 shapes available, named <code>watercolorX</code> where X is between 1 and 12.
+</p><span class="inline-block watercolor2"  style="top:380px; left:400px; width:300px; background-color:#BBAD82; opacity:70%;"></span><p><span class="inline-block pageNumber"  >1</span>
+</p><span class="inline-block footnote"  >PART 1 | Demo</span><p>&nbsp;</p>
+<div class='columnSplit'>  </div><p>&nbsp;</p>
+</div>
+		</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
