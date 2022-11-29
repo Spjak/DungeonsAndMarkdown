@@ -47,15 +47,15 @@ All images can be modfied to change size, location and opacity, using css-style 
 
 #### dnm-image
 Images are added in-line and can be decorated with caption and artist credits
-![cat warrior](https://s-media-cache-ak0.pinimg.com/736x/4a/81/79/4a8179462cfdf39054a418efd4cb743e.jpg) {width:325px,mix-blend-mode:multiply}
-{{artist,position:relative,top:-230px,left:10px,margin-bottom:-30px
+![cat warrior](https://s-media-cache-ak0.pinimg.com/736x/4a/81/79/4a8179462cfdf39054a418efd4cb743e.jpg) {width:280px,mix-blend-mode:multiply}
+{{artist,position:relative,top:-200px,left:0px,margin-bottom:-30px
 ##### Cat Warrior
 [Kyoung Hwan Kim](https://www.artstation.com/tahra)
 }}
 #### dnm-background-image
 Background images will allow content on top. Make sure to consider text and image location to ensure readablility.
 ![homebrew mug](http://i.imgur.com/hMna6G0.png) {position:absolute,top:70px,right:100px,width:180px} 
-:::::::::
+:::::::::::
 #### dnm-watermark
 Watermark text will be calpitalized and positioned diagonally across the whole page. Avoid words with more than roughly 10 letters to avoid multiple lines of text.
 {{watermark WATERMARK}}
