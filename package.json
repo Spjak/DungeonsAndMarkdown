@@ -4,6 +4,7 @@
   "description": "Generate D&D style documents from Markdown",
   "version": "0.1.0",
   "publisher": "SpjakSoftware",
+  "icon": "docs/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Spjak/DungeonsAndMarkdown"
@@ -12,7 +13,8 @@
     "vscode": "^1.73.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Snippets"
   ],
   "keywords": [
     "dnd",
@@ -31,11 +33,17 @@
     "commands": [
       {
         "command": "dungeonsandmarkdown.generate",
-        "title": "Dungeons & Markdown: Generate"
+        "title": "Dungeons & Markdown: Generate HTML"
       },
       {
         "command": "dungeonsandmarkdown.preview",
         "title": "Dungeons & Markdown: Preview"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./snippets"
       }
     ]
   },

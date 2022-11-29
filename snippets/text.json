@@ -1,0 +1,52 @@
+{
+    "Colunm Break": {
+		"prefix": "dnm-column",
+		"body": "\\column",
+		"description": "Column Break"
+	},
+	"Page Break": {
+		"prefix": "dnm-page",
+		"body": "\\page",
+		"description": "Page Break"
+	},
+	"Vertical Spacing": {
+		"prefix": "dnm-spacing-vertical",
+		"body": "::::",
+		"description": "Vertical Spacing"
+	},
+	"Horizontal Spacing": {
+		"prefix": "dnm-spacing-horizontal",
+		"body": "{{width:100px}}",
+		"description": "Horizontal Spacing"
+	},
+	"Wide Text Block": {
+		"prefix": "dnm-text-wide",
+		"body": ["{{wide","Everything in here will be extra wide. Tables, text, everything!","Beware though, CSS columns can behave a bit weird sometimes. You may have to manually place column breaks with `\\column` to make the","surrounding text flow with this wide block the way you want.","}}"],
+		"description": "Wide Text Block"
+	},
+	"QR Code": {
+		"prefix": "dnm-qr",
+		"body": "![](https://api.qrserver.com/v1/create-qr-code/?data=https://marketplace.visualstudio.com/items?itemName=SpjakSoftware.dungeonsandmarkdown&amp;size=100x100) {width:100px;mix-blend-mode:multiply}",
+		"description": "QR Code"
+	},
+	"Page Link": {
+		"prefix": "dnm-page-link",
+		"body": "[Click here](#p3) to go to page 3",
+		"description": "Local Page Link"
+	},
+	"Page Number": {
+		"prefix": "dnm-page-number",
+		"body": ["{{pageNumber 1}}","{{footnote PART 1 | SECTION NAME}}"],
+		"description": "Custom Page Number and Footnote"
+	},
+	"Page Number (Auto Increment)": {
+		"prefix": "dnm-page-auto",
+		"body": ["{{pageNumber,auto}}","{{footnote PART 1 | SECTION NAME}}"],
+		"description": "Auto Incrementing Page Number"
+	},
+	"Table Of Contents": {
+		"prefix": "dnm-toc",
+		"body": ["{{toc,wide","# Table Of Contents","","- ### [{{ Dungeons & Markdown}}{{ 1}}](#p1)","- [{{ Subheading }}{{ 1}}](#p1)","- [{{ Another subheading }}{{ 1}}](#p1)","- #### [{{ Features }}{{ 1}}](#p2)","- [{{ Preview}}{{ 1}}](#p2)","- [{{ Generate }}{{ 1}}](#p2)","}}"],
+		"description": "Table of Contents (Manual edit)"
+	}
+}
