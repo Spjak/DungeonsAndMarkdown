@@ -36,7 +36,11 @@ Details on the full list of snippets and examples of their effects, can be found
 * Images and external links may not render properly in the preview, due to sandbox limitations.
 
 ## Release Notes
+### 1.0.0
 
+- Added more than 30 snippets for extended Markdown syntax elements
+- Added documentation and link to home page
+- Bug fixes
 ### 0.1.0
 
 - Preview window now live updates as markdown file is edited
