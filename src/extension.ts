@@ -30,6 +30,9 @@ const TEMPLATE_HTML = `
                     .page h5 {
                         color: black
                     }
+                    .page h6 {
+                        color: black
+                    }
                     .page dl {
                         color: black
                     }
