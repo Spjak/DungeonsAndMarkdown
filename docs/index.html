@@ -66,40 +66,137 @@
 		<div class="page" id="p2" key="1" >
 			<div class="columnWrapper"><h1 id="dungeons--markdown">Dungeons &amp; Markdown</h1>
 <p>Generate beautiful D&amp;D style documents with Markdown.</p>
-<p>Based on Homebrewery V3, regular Markdown syntax is supported, but also extended with a range of useful options.
-For convenience, most of this extended syntax is provided as snippets with this extension.</p>
+<div class='blank'>  </div><p>Based on <a href="https://homebrewery.naturalcrit.com/">Homebrewery</a> V3, regular Markdown syntax is supported, but also extended with a range of useful options.
+For convenience, most of this extended syntax is provided as 32 example snippets bundled with this extension.</p>
 <p>Below are descriptions of these snippets and examples of what they can generate.</p>
-<h3 id="how-to-use-snippets">How to use snippets</h3>
-<p>When editing a Markdown document, press <code>CTRL+Space</code> or the assigned auto-complete hotkeys. All Dungeons &amp; Markdown snippets are prefixed with <em>dnm</em>, e.g. <code>dnm-class-table</code>.</p>
-<p>The snippets roughly match the options presented on the <a href="https://homebrewery.naturalcrit.com/">Homebrewery</a> web editor, but will generate the same output whenever used, where the web editor has a range of random content for each element.</p>
+<div class='blank'>  </div><p>Source markdown for this document is available <a href="https://raw.githubusercontent.com/Spjak/DungeonsAndMarkdown/main/docs/index.md">here</a></p>
+<h3 id="using-snippets">Using snippets</h3>
+<p>When editing a Markdown document, press <code>CTRL+Space</code> or the assigned auto-complete hotkeys for a list of options. All Dungeons &amp; Markdown snippets are prefixed with <em>dnm-</em>, e.g. <code>dnm-class-table</code>.</p>
+<p>The snippets roughly match the options presented in the <a href="https://homebrewery.naturalcrit.com/">Homebrewery</a> web editor, but will generate the same output whenever used, whereas the web editor has a range of random content for each element.</p>
 <h3 id="images">Images</h3>
 <p>All images can be modfied to change size, location and opacity, using css-style properties.</p>
 <h5 id="snippets">Snippets</h5>
 <table><thead><tr><th align=left>Command</th>
 <th align=center>Effect</th>
 </tr></thead><tbody><tr><td align=left>dnm-image</td>
-<td align=center>Insert image</td>
+<td align=center>Add an image</td>
 </tr><tr><td align=left>dnm-background-image</td>
-<td align=center>Insert background image</td>
+<td align=center>Add a background image</td>
 </tr><tr><td align=left>dnm-watermark</td>
-<td align=center>Add watermark text</td>
-</tr><tr><td align=left>dnm-watercolor</td>
-<td align=center>Add water stain or splatter</td>
+<td align=center>Add a watermark text</td>
+</tr><tr><td align=left>dnm-waterstain</td>
+<td align=center>Add a water stain or splatter</td>
 </tr></tbody></table><h4 id="dnm-image">dnm-image</h4>
-<p>Images can be added in-line and decorated with caption and artist credits
+<p>Images are added in-line and can be decorated with caption and artist credits
 <img class=" "  style="width:325px; mix-blend-mode:multiply;" src="https://s-media-cache-ak0.pinimg.com/736x/4a/81/79/4a8179462cfdf39054a418efd4cb743e.jpg" alt="cat warrior"></p>
 <div class="block artist"  style="position:relative; top:-230px; left:10px; margin-bottom:-30px;"><h5 id="cat-warrior">Cat Warrior</h5>
 <p><a href="https://www.artstation.com/tahra">Kyoung Hwan Kim</a></p>
-</div><div class='columnSplit'>  </div><h4 id="dnm-background-image">dnm-background-image</h4>
+</div><h4 id="dnm-background-image">dnm-background-image</h4>
 <p>Background images will allow content on top. Make sure to consider text and image location to ensure readablility.
 <img class=" "  style="position:absolute; top:70px; right:100px; width:180px;" src="http://i.imgur.com/hMna6G0.png" alt="homebrew mug"> </p>
-<div class='blank'> </div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'> </div><h4 id="dnm-watermark">dnm-watermark</h4>
+<div class='blank'> </div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'> </div><h4 id="dnm-watermark">dnm-watermark</h4>
 <p>Watermark text will be calpitalized and positioned diagonally across the whole page. Avoid words with more than roughly 10 letters to avoid multiple lines of text.
-</p><span class="inline-block watermark"  >WATERMARK</span><div class='blank'> </div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'> </div><h4 id="dnm-watercolor">dnm-watercolor</h4>
-<p>Add a water splotch or splatter as a background image. Shapes are predefined but can be resized as any other image.</p>
+</p><span class="inline-block watermark"  >WATERMARK</span><div class='blank'> </div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'></div><div class='blank'> </div><h4 id="dnm-waterstain">dnm-waterstain</h4>
+<p>Add a waterstain or splotch as a background image. Shapes are predefined but can be resized as any other image.</p>
 <p>There are 12 shapes available, named <code>watercolorX</code> where X is between 1 and 12.
 </p><span class="inline-block watercolor2"  style="top:380px; left:400px; width:300px; background-color:#BBAD82; opacity:70%;"></span><p><span class="inline-block pageNumber"  >1</span>
-</p><span class="inline-block footnote"  >PART 1 | Demo</span><p>&nbsp;</p>
+</p><span class="inline-block footnote"  >Snippets | Images</span><p>&nbsp;</p>
+<div class='columnSplit'>  </div><p>&nbsp;</p>
+</div>
+		</div>
+		<div class="page" id="p3" key="2" >
+			<div class="columnWrapper"><div class="block wide"  ><h3 id="players-handbook-elements">Player’s Handbook Elements</h3>
+<p>These elements mimic the look and feel of the Player’s Handbook</p>
+<h5 id="snippets">Snippets</h5>
+<table><thead><tr><th align=left>Command</th>
+<th align=center>Effect</th>
+</tr></thead><tbody><tr><td align=left>dnm-note</td>
+<td align=center>Add a framed text box</td>
+</tr><tr><td align=left>dnm-descriptive-text</td>
+<td align=center>Add a highlighted text box</td>
+</tr><tr><td align=left>dnm-cover-page</td>
+<td align=center>Add a front cover page</td>
+</tr><tr><td align=left>dnm-magic-item</td>
+<td align=center>Add a item details block</td>
+</tr><tr><td align=left>dnm-spell</td>
+<td align=center>Add a spell details block</td>
+</tr><tr><td align=left>dnm-spell-list</td>
+<td align=center>Add a list of spells</td>
+</tr><tr><td align=left>dnm-class-features</td>
+<td align=center>Add a list of class features</td>
+</tr><tr><td align=left>dnm-monster-stat-block</td>
+<td align=center>Add a monster details block</td>
+</tr><tr><td align=left>dnm-monster-stat-block-framed</td>
+<td align=center>Add a framed monster details block</td>
+</tr><tr><td align=left>dnm-monster-stat-block-wide</td>
+<td align=center>Add a page-wide monster details block</td>
+</tr></tbody></table></div><h4 id="examples">Examples</h4>
+<p>Coming soon..
+<span class="inline-block pageNumber auto"  ></span>
+<span class="inline-block footnote"  >Snippets | Player’s Handbook Elements</span></p>
+<p>&nbsp;</p>
+<div class='columnSplit'>  </div><p>&nbsp;</p>
+</div>
+		</div>
+		<div class="page" id="p4" key="3" >
+			<div class="columnWrapper"><div class="block wide"  ><h3 id="tables">Tables</h3>
+<p>Additional D&amp;D style tables are available, beyond generic Markdown tables syntax</p>
+<h5 id="snippets">Snippets</h5>
+<table><thead><tr><th align=left>Command</th>
+<th align=center>Effect</th>
+</tr></thead><tbody><tr><td align=left>dnm-table</td>
+<td align=center>Add a default styled table</td>
+</tr><tr><td align=left>dnm-table-wide</td>
+<td align=center>Add a default styled wide table</td>
+</tr><tr><td align=left>dnm-table-split</td>
+<td align=center>Add a table split into 2 or more columns</td>
+</tr><tr><td align=left>dnm-table-class</td>
+<td align=center>Add a class details table</td>
+</tr><tr><td align=left>dnm-table-class-framed</td>
+<td align=center>Add a framed class details table</td>
+</tr><tr><td align=left>dnm-table-class-half</td>
+<td align=center>Add a half sized class details table</td>
+</tr><tr><td align=left>dnm-table-class-half-framed</td>
+<td align=center>Add a framed half size class details table</td>
+</tr></tbody></table></div><h4 id="examples">Examples</h4>
+<p>Coming soon..
+<span class="inline-block pageNumber auto"  ></span>
+<span class="inline-block footnote"  >Snippets | Tables</span></p>
+<p>&nbsp;</p>
+<div class='columnSplit'>  </div><p>&nbsp;</p>
+</div>
+		</div>
+		<div class="page" id="p5" key="4" >
+			<div class="columnWrapper"><div class="block wide"  ><h3 id="text-edit-elements">Text Edit Elements</h3>
+<p>These snippets make it possible to lay out the pages easier than with generic Markdown</p>
+<h5 id="snippets">Snippets</h5>
+<table><thead><tr><th align=left>Command</th>
+<th align=center>Effect</th>
+</tr></thead><tbody><tr><td align=left>dnm-column</td>
+<td align=center>Add a column break</td>
+</tr><tr><td align=left>dnm-page</td>
+<td align=center>Add a page break</td>
+</tr><tr><td align=left>dnm-spacing-vertical</td>
+<td align=center>Add vertical spacing</td>
+</tr><tr><td align=left>dnm-spacing-horizontal</td>
+<td align=center>Add horizontal spacing</td>
+</tr><tr><td align=left>dnm-text-wide</td>
+<td align=center>Add text and content box in full page width</td>
+</tr><tr><td align=left>dnm-page-number</td>
+<td align=center>Add specific page number and footnote</td>
+</tr><tr><td align=left>dnm-page-auto</td>
+<td align=center>Add auto-increment page number and footnote</td>
+</tr><tr><td align=left>dnm-page-link</td>
+<td align=center>Add link to specific page number</td>
+</tr><tr><td align=left>dnm-qr</td>
+<td align=center>Add QR code</td>
+</tr><tr><td align=left>dnm-toc</td>
+<td align=center>Add Table of Contents (not auto-generated)</td>
+</tr></tbody></table></div><h4 id="examples">Examples</h4>
+<p>Coming soon..
+<span class="inline-block pageNumber auto"  ></span>
+<span class="inline-block footnote"  >Snippets | Text Edit Elements</span></p>
+<p>&nbsp;</p>
 <div class='columnSplit'>  </div><p>&nbsp;</p>
 </div>
 		</div>
