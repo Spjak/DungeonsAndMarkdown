@@ -2,7 +2,7 @@
   "name": "dungeonsandmarkdown",
   "displayName": "Dungeons & Markdown",
   "description": "Generate D&D style documents from Markdown",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "SpjakSoftware",
   "icon": "docs/icon.png",
   "repository": {
