@@ -33,6 +33,7 @@ All snippets are prefixed with `dnm-`, e.g. `dnm-class-table`
 Details on the full list of snippets and examples of their effects, can be found on the Dungeons & Markdown [homepage](https://dungeonsandmarkdown.spjak.com)
 
 ## Known issues
+* Apostrophes and other special characters are not handled properly when saving to HTML
 * Images and external links may not render properly in the preview, due to sandbox limitations.
 
 ## Release Notes
