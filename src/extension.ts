@@ -49,6 +49,7 @@ const TEMPLATE_HTML = `
                         z-index: -500
                     }
                     </style>
+                    {{ global_styles }}
                     <div class="pages">
                         {{ body }}
                     </div>
@@ -58,7 +59,17 @@ const TEMPLATE_HTML = `
     </body>
 </html>`
 
-function renderPage(pageText: string, index: number){
+function addCustomGlobalStyles() {
+    let styleElements = ""
+    let conf = vscode.workspace.getConfiguration()
+    const styleFiles = conf.get("dnm.globalStyleFiles") ? conf.get("dnm.globalStyleFiles") as [] : []
+    for (let style of styleFiles) {
+        styleElements += `<link href='${style}' rel='stylesheet' />\n`
+    }
+    return TEMPLATE_HTML.replace('{{ global_styles }}', styleElements)
+}
+
+function renderPage(pageText: string, index: number) {
 	pageText += `\n\n&nbsp;\n\\column\n&nbsp;`
 	let body = `
 		<div class="page" id="p${index + 1}" key="${index}" >
@@ -103,8 +114,9 @@ function generateFile(){
 
 	let text = editor?.document.getText()
 	let res = text? generateHTML(text) : null
+    let html = addCustomGlobalStyles()
 
-	res? fs.writeFileSync(outPath, TEMPLATE_HTML.replace('{{ body }}', res), 'utf8') : null
+	res? fs.writeFileSync(outPath, html.replace('{{ body }}', res), 'utf8') : null
 }
 
 function redraw(panel: vscode.WebviewPanel) {
@@ -114,10 +126,11 @@ function redraw(panel: vscode.WebviewPanel) {
             redraw(panel)
         }
         else {
+            let html = addCustomGlobalStyles()
             let text = editor?.document.getText()
             let res = text? generateHTML(text) : null
             if (panel) {
-                res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+                res? panel.webview.html = html.replace('{{ body }}', res) : null
             }
             redraw(panel)
         }
@@ -146,8 +159,9 @@ export function activate(context: vscode.ExtensionContext) {
                 'D&M: Preview',
                 columnToShowIn || vscode.ViewColumn.One,
                 {}
-            );
-            res? currentPanel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+            )
+            let html = addCustomGlobalStyles()
+            res? currentPanel.webview.html = html.replace('{{ body }}', res) : null
     
             // Reset when the current panel is closed
             currentPanel.onDidDispose(
