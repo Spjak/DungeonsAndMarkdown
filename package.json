@@ -44,14 +44,15 @@
     "configuration": {
 			"title": "Dungeons & Markdown",
 			"properties": {
-				"dnm.globalStyleFiles": {
+				"dnm.customStyleSheets": {
 					"type": "array",
 					"default": [],
           "items": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^.*css$"
           },
           "uniqueItems": true,
-					"description": "Style sheets to be added to all previews and file generations\nRequires either a fully qualified url e.g. https://www.example.com/custom.css or a file path relative to the open workspace, e.g. .\\styles\\custom.css"
+					"markdownDescription": "Custom style sheets added to all previews and file generations\n\nRequires either a fully qualified url e.g. `https://www.example.com/custom.css` or a file path relative to the open workspace, e.g. `styles\\custom.css`"
 				}
       }
     },

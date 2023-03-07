@@ -49,7 +49,7 @@ const TEMPLATE_HTML = `
                         z-index: -500
                     }
                     </style>
-                    {{ global_styles }}
+                    {{ custom_styles }}
                     <div class="pages">
                         {{ body }}
                     </div>
@@ -59,10 +59,10 @@ const TEMPLATE_HTML = `
     </body>
 </html>`
 
-function addCustomGlobalStyles(ctx?: vscode.ExtensionContext, panel?: vscode.WebviewPanel) {
+function addCustomStyles(ctx?: vscode.ExtensionContext, panel?: vscode.WebviewPanel) {
     let styleElements = ""
     let conf = vscode.workspace.getConfiguration()
-    const styleFiles = conf.get("dnm.globalStyleFiles") ? conf.get("dnm.globalStyleFiles") as [] : []
+    const styleFiles = conf.get("dnm.customStyleSheets") ? conf.get("dnm.customStyleSheets") as [] : []
     for (let file of styleFiles) {
         // File path is a web url e.g. https://example.com/custom.css. Works in preview and generate html
         if (isWebUrl(file)) {
@@ -70,9 +70,9 @@ function addCustomGlobalStyles(ctx?: vscode.ExtensionContext, panel?: vscode.Web
         }
         // File path is local
         else {
-            // Rewrite file path for preview
             let wsPath = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri : vscode.Uri.parse("")
             let fullPath = vscode.Uri.joinPath(wsPath, file)
+            // Rewrite file path for preview
             if (ctx && panel) {
                 styleElements += `<link href='${panel.webview.asWebviewUri(fullPath)}' rel='stylesheet' />\n`
             }
@@ -82,7 +82,7 @@ function addCustomGlobalStyles(ctx?: vscode.ExtensionContext, panel?: vscode.Web
             }
         }        
     }
-    return TEMPLATE_HTML.replace('{{ global_styles }}', styleElements)
+    return TEMPLATE_HTML.replace('{{ custom_styles }}', styleElements)
 }
 
 function isWebUrl(url: string) {
@@ -141,7 +141,7 @@ function generateFile(){
 
 	let text = editor?.document.getText()
 	let res = text? generateHTML(text) : null
-    let html = addCustomGlobalStyles()
+    let html = addCustomStyles()
 
 	res? fs.writeFileSync(outPath, html.replace('{{ body }}', res), 'utf8') : null
 }
@@ -187,7 +187,7 @@ export function activate(context: vscode.ExtensionContext) {
                 columnToShowIn || vscode.ViewColumn.One,
                 {}
             )
-            html = addCustomGlobalStyles(context, currentPanel)
+            html = addCustomStyles(context, currentPanel)
             res? currentPanel.webview.html = html.replace('{{ body }}', res) : null
     
             // Reset when the current panel is closed
