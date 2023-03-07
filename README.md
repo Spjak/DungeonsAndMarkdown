@@ -32,11 +32,25 @@ All snippets are prefixed with `dnm-`, e.g. `dnm-class-table`
 
 Details on the full list of snippets and examples of their effects, can be found on the Dungeons & Markdown [homepage](https://dungeonsandmarkdown.spjak.com)
 
+### Custom styling
+
+Customize styling of all pages in a workspace by applying custom stylesheet(s).
+
+In _Settings -> Dungeons & Markdown -> Custom Style Sheets_ provide paths to one or more custom stylesheets that will be included in preview and html generation across all files in the workspace.
+
+Paths can be a fully qualified url, e.g. `https://example.com/custom.css` or local file paths relative to the root of the workspace, e.g. `styles\custom.css`
+
+This setting can be configured on User or Workspace level. It is recommended to set on Workspace level if local paths are used, to avoid permission issues.
+
 ## Known issues
 * Apostrophes and other special characters are not handled properly when saving to HTML
 * Images and external links may not render properly in the preview, due to sandbox limitations.
 
 ## Release Notes
+### 1.1.0
+
+- Added setting for global/workspace custom styling
+- Updated packages
 ### 1.0.0
 
 - Added more than 30 snippets for extended Markdown syntax elements

@@ -3,6 +3,9 @@ All notable changes to the "dungeonsandmarkdown" extension will be documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.1.0] - Unreleased
+### Added
+- Custom style sheet support. Implements issue [#1](https://github.com/Spjak/DungeonsAndMarkdown/issues/1)
 ## [1.0.0] - 2022-11-29
 ### Added
 - Snippets matching all of the features on the homebrewery site
