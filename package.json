@@ -27,10 +27,19 @@
   ],
   "activationEvents": [
     "onCommand:dungeonsandmarkdown.generate",
-    "onCommand:dungeonsandmarkdown.preview"
+    "onCommand:dungeonsandmarkdown.preview",
+    "onLanguage:markdown"
   ],
   "main": "./out/extension.js",
+  "editor.semanticHighlighting.enabled": true,
   "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "homebrewery.injection",
+        "injectTo": ["text.html.markdown"]
+      }
+    ],
     "commands": [
       {
         "command": "dungeonsandmarkdown.generate",

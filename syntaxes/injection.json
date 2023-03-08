@@ -1,0 +1,83 @@
+{
+    "name": "HomebrewerySyntax",
+    "scopeName": "homebrewery.injection",
+    "injectionSelector": "L:meta.paragraph.markdown",
+    "patterns": [
+      {
+        "include": "#page"
+      },
+      {
+        "include": "#column"
+      },
+      {
+        "include": "#double-curly"
+      },
+      {
+        "include": "#double-curly-end"
+      },
+      {
+        "include": "#single-curly"
+      },
+      {
+        "include": "#square-bracket"
+      },
+      {
+        "include": "#parenthesis"
+      },
+      {
+        "include": "#html-start"
+      },
+      {
+        "include": "#html-end"
+      }
+    ],
+    "repository": {
+      "page": {
+        "match": "\\\\page",
+        "name": "keyword.control"
+      },
+      "column": {
+        "match": "\\\\column",
+        "name": "keyword.control"
+      },
+      "double-curly": {
+        "match": "{{.*?}}|{{.*",
+        "name": "constant.character.set.regexp"
+      },
+      "double-curly-end": {
+        "match": "}}",
+        "name": "constant.character.set.regexp"
+      },
+      "single-curly": {
+        "match": "{[^{].*?[^}]}",
+        "name": "support.type"
+      },
+      "square-bracket": {
+        "match": ".*\\[(.*)\\]",
+        "captures": {
+            "1": {
+                "name":"variable.other.constant"
+            }
+        }
+      },
+      "parenthesis": {
+        "match": "\\(.*?\\)",
+        "name": "entity.name.function"
+      },
+      "html-start": {
+        "match": "(<\\w+)\\s*.*?(>)",
+        "captures": {
+            "1": {
+                "name":"entity.name.type"
+            },
+            "2": {
+                "name":"entity.name.type"
+            }
+        }
+      },
+      "html-end": {
+        "match": "<\\/.*?>",
+        "name":"entity.name.type"
+      }
+    }
+}
