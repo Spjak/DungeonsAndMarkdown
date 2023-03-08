@@ -43,8 +43,14 @@ Paths can be a fully qualified url, e.g. `https://example.com/custom.css` or loc
 This setting can be configured on User or Workspace level. It is recommended to set on Workspace level if local paths are used, to avoid permission issues.
 
 ## Known issues
-* Apostrophes and other special characters are not handled properly when saving to HTML
+* Apostrophes and other special characters are always not handled properly when saving to HTML
 * Images and external links may not render properly in the preview, due to sandbox limitations.
+* When using custom styling, certain elements may require more specific override than on the Homebrewery site, specifically font color for 
+    * p
+    * li
+    * table
+    * h5, h6
+    * dl
 
 ## Release Notes
 ### 1.1.0
