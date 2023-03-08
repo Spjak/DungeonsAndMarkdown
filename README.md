@@ -10,7 +10,6 @@ Supports the full list of the extended Markdown syntax elements in Homebrewery V
 
 Inspired by [homebrewery-vcsode](https://marketplace.visualstudio.com/items?itemName=officerhalf.homebrewery-vscode) which does not support the new elements and is no longer updated.
 
----
 ## Features
 
 Write structured documents in (extended) Markdown and generate beautiful pages in the style of the Dungeons & Dragons books and resources.
@@ -43,7 +42,6 @@ Paths can be a fully qualified url, e.g. `https://example.com/custom.css` or loc
 
 It is recommended to only set this configuration on Workspace level - not User level. If local paths are used, this _will_ cause permission issues on User level.
 
----
 ## Known issues
 * Apostrophes and other special characters are always not handled properly when saving to HTML
 * Images and external links may not render properly in the preview, due to sandbox limitations.
@@ -53,7 +51,6 @@ It is recommended to only set this configuration on Workspace level - not User l
     * table
     * h5, h6
     * dl
----
 ## Release Notes
 ### 1.1.0
 
