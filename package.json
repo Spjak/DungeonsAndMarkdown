@@ -2,7 +2,7 @@
   "name": "dungeonsandmarkdown",
   "displayName": "Dungeons & Markdown",
   "description": "Generate D&D style documents from Markdown",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "SpjakSoftware",
   "icon": "docs/icon.png",
   "homepage": "https://dungeonsandmarkdown.spjak.com",
@@ -41,6 +41,21 @@
         "title": "Dungeons & Markdown: Preview"
       }
     ],
+    "configuration": {
+			"title": "Dungeons & Markdown",
+			"properties": {
+				"dnm.customStyleSheets": {
+					"type": "array",
+					"default": [],
+          "items": {
+            "type": "string",
+            "pattern": "^.*css$"
+          },
+          "uniqueItems": true,
+					"markdownDescription": "Custom style sheets added to all previews and file generations\n\nRequires either a fully qualified url e.g. `https://www.example.com/custom.css` or a file path relative to the open workspace, e.g. `styles\\custom.css`"
+				}
+      }
+    },
     "snippets": [
       {
         "language": "markdown",

@@ -49,6 +49,7 @@ const TEMPLATE_HTML = `
                         z-index: -500
                     }
                     </style>
+                    {{ custom_styles }}
                     <div class="pages">
                         {{ body }}
                     </div>
@@ -58,7 +59,44 @@ const TEMPLATE_HTML = `
     </body>
 </html>`
 
-function renderPage(pageText: string, index: number){
+function addCustomStyles(ctx?: vscode.ExtensionContext, panel?: vscode.WebviewPanel) {
+    let styleElements = ""
+    let conf = vscode.workspace.getConfiguration()
+    const styleFiles = conf.get("dnm.customStyleSheets") ? conf.get("dnm.customStyleSheets") as [] : []
+    for (let file of styleFiles) {
+        // File path is a web url e.g. https://example.com/custom.css. Works in preview and generate html
+        if (isWebUrl(file)) {
+            styleElements += `<link href='${file}' rel='stylesheet' />\n`
+        }
+        // File path is local
+        else {
+            let wsPath = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0].uri : vscode.Uri.parse("")
+            let fullPath = vscode.Uri.joinPath(wsPath, file)
+            // Rewrite file path for preview
+            if (ctx && panel) {
+                styleElements += `<link href='${panel.webview.asWebviewUri(fullPath)}' rel='stylesheet' />\n`
+            }
+            // Rewrite file path for generate html
+            else {
+                styleElements += `<link href='${fullPath}' rel='stylesheet' />\n`
+            }
+        }        
+    }
+    return TEMPLATE_HTML.replace('{{ custom_styles }}', styleElements)
+}
+
+function isWebUrl(url: string) {
+    let res: URL
+    try {
+        res = new URL(url)
+    }
+    catch {
+        return false
+    }
+    return res.protocol === "http:" || res.protocol === "https:"
+}
+
+function renderPage(pageText: string, index: number) {
 	pageText += `\n\n&nbsp;\n\\column\n&nbsp;`
 	let body = `
 		<div class="page" id="p${index + 1}" key="${index}" >
@@ -103,23 +141,24 @@ function generateFile(){
 
 	let text = editor?.document.getText()
 	let res = text? generateHTML(text) : null
+    let html = addCustomStyles()
 
-	res? fs.writeFileSync(outPath, TEMPLATE_HTML.replace('{{ body }}', res), 'utf8') : null
+	res? fs.writeFileSync(outPath, html.replace('{{ body }}', res), 'utf8') : null
 }
 
-function redraw(panel: vscode.WebviewPanel) {
+function redraw(panel: vscode.WebviewPanel, html: string) {
     setTimeout(() => {  
         let editor = vscode.window.activeTextEditor
         if (editor?.document.languageId !== 'markdown') {
-            redraw(panel)
+            redraw(panel, html)
         }
         else {
             let text = editor?.document.getText()
             let res = text? generateHTML(text) : null
             if (panel) {
-                res? panel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+                res? panel.webview.html = html.replace('{{ body }}', res) : null
             }
-            redraw(panel)
+            redraw(panel, html)
         }
     }, 1000)
 }
@@ -128,6 +167,7 @@ export function activate(context: vscode.ExtensionContext) {
     let currentPanel: vscode.WebviewPanel | undefined = undefined;
 	let generateCommand = vscode.commands.registerCommand('dungeonsandmarkdown.generate', generateFile)
 	context.subscriptions.push(generateCommand)
+    let html: string
 
     let previewCommand = vscode.commands.registerCommand('dungeonsandmarkdown.preview', () => {
         let editor = vscode.window.activeTextEditor
@@ -146,8 +186,9 @@ export function activate(context: vscode.ExtensionContext) {
                 'D&M: Preview',
                 columnToShowIn || vscode.ViewColumn.One,
                 {}
-            );
-            res? currentPanel.webview.html = TEMPLATE_HTML.replace('{{ body }}', res) : null
+            )
+            html = addCustomStyles(context, currentPanel)
+            res? currentPanel.webview.html = html.replace('{{ body }}', res) : null
     
             // Reset when the current panel is closed
             currentPanel.onDidDispose(
@@ -158,7 +199,7 @@ export function activate(context: vscode.ExtensionContext) {
                 context.subscriptions
             )
         }
-        redraw(currentPanel)
+        redraw(currentPanel, html)
     })
 
     context.subscriptions.push(previewCommand)
