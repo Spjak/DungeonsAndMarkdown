@@ -51,7 +51,6 @@ It is recommended to only set this configuration on Workspace level - not User l
 
 ---
 ## Known issues
-* Apostrophes and other special characters are always not handled properly when saving to HTML
 * Images and external links may not render properly in the preview, due to sandbox limitations.
 * When using custom styling, certain elements may require more specific override than on the Homebrewery site, specifically font color for 
     * p
@@ -62,6 +61,10 @@ It is recommended to only set this configuration on Workspace level - not User l
 
 ---
 ## Release Notes
+### 1.2.0
+
+- Added limited syntax highlighting for custom Homebrewery elements
+- Fixed issue with apostropes and special characters
 ### 1.1.0
 
 - Added setting for global/workspace custom styling
