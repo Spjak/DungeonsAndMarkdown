@@ -2,7 +2,7 @@
   "name": "dungeonsandmarkdown",
   "displayName": "Dungeons & Markdown",
   "description": "Generate D&D style documents from Markdown",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "SpjakSoftware",
   "icon": "docs/icon.png",
   "homepage": "https://dungeonsandmarkdown.spjak.com",
@@ -27,10 +27,19 @@
   ],
   "activationEvents": [
     "onCommand:dungeonsandmarkdown.generate",
-    "onCommand:dungeonsandmarkdown.preview"
+    "onCommand:dungeonsandmarkdown.preview",
+    "onLanguage:markdown"
   ],
   "main": "./out/extension.js",
+  "editor.semanticHighlighting.enabled": true,
   "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "homebrewery.injection",
+        "injectTo": ["text.html.markdown"]
+      }
+    ],
     "commands": [
       {
         "command": "dungeonsandmarkdown.generate",

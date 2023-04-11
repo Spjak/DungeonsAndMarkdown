@@ -3,6 +3,11 @@ All notable changes to the "dungeonsandmarkdown" extension will be documented in
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.2.0] - 2023-04-11
+### Added
+- Limited syntax highlighting. Implements issue [#2](https://github.com/Spjak/DungeonsAndMarkdown/issues/2)
+### Fixed
+- Fixed issue with apostrophes and special characters in generated HTML
 ## [1.1.0] - 2023-03-08
 ### Added
 - Custom style sheet support. Implements issue [#1](https://github.com/Spjak/DungeonsAndMarkdown/issues/1)

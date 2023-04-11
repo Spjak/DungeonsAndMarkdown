@@ -6,6 +6,7 @@ const TEMPLATE_HTML = `
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
         <link href='https://assets.dungeonsandmarkdown.spjak.com/bundle.css' rel='stylesheet' />
