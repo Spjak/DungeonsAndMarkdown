@@ -22,10 +22,7 @@
         "include": "#single-curly"
       },
       {
-        "include": "#square-bracket"
-      },
-      {
-        "include": "#parenthesis"
+        "include": "#links"
       }
     ],
     "repository": {
@@ -53,17 +50,16 @@
         "match": "{[^{].*?[^}]}",
         "name": "support.type"
       },
-      "square-bracket": {
-        "match": ".*\\[(.*)\\]",
+      "links": {
+        "match": ".*\\[(.*)\\](\\(.*?\\))",
         "captures": {
             "1": {
                 "name":"variable.other.constant"
-            }
+            },
+            "2": {
+              "name":"entity.name.function"
+          }
         }
-      },
-      "parenthesis": {
-        "match": "\\(.*?\\)",
-        "name": "entity.name.function"
       }
     }
 }
