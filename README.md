@@ -61,6 +61,9 @@ It is recommended to only set this configuration on Workspace level - not User l
 
 ---
 ## Release Notes
+### 1.2.1
+
+- Fixed parenthesis highlighting
 ### 1.2.0
 
 - Added limited syntax highlighting for custom Homebrewery elements
