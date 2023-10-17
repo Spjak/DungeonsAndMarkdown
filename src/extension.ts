@@ -145,6 +145,27 @@ function generateFile(){
     let html = addCustomStyles()
 
 	res? fs.writeFileSync(outPath, html.replace('{{ body }}', res), 'utf8') : null
+    vscode.window.showInformationMessage("HTML Exported as " + outPath);
+}
+
+function generateFromFile(mdDocument: string){
+	let outPath = mdDocument.replace(/\.\w+?$/, `.html`);
+    outPath = outPath.replace(/^([cdefghij]):\\/, (match, p1) => {
+        return `${p1.toUpperCase()}:\\`; // Capitalize drive letter
+    });
+    if(!outPath.endsWith('.html')) {
+        outPath += '.html';
+    }
+
+    let mdDocumentPath = vscode.Uri.file(mdDocument);
+    vscode.workspace.fs.readFile(mdDocumentPath).then((mdContents) => {
+        let readText = Buffer.from(mdContents).toString('utf8');
+	    let res = readText? generateHTML(readText) : null
+        let html = addCustomStyles()
+
+	    res? fs.writeFileSync(outPath, html.replace('{{ body }}', res), 'utf8') : null
+        vscode.window.showInformationMessage("HTML Exported as " + outPath);
+    });
 }
 
 function redraw(panel: vscode.WebviewPanel, html: string) {
@@ -166,13 +187,20 @@ function redraw(panel: vscode.WebviewPanel, html: string) {
 
 export function activate(context: vscode.ExtensionContext) {
     let currentPanel: vscode.WebviewPanel | undefined = undefined;
-	let generateCommand = vscode.commands.registerCommand('dungeonsandmarkdown.generate', generateFile)
+	let generateCommand = vscode.commands.registerCommand('dungeonsandmarkdown.generate', (mdDocument: string | undefined) => { 
+            if ( !mdDocument ) {
+                generateFile(); 
+            } else {
+                generateFromFile(mdDocument);
+            }
+        }
+    );
 	context.subscriptions.push(generateCommand)
     let html: string
 
-    let previewCommand = vscode.commands.registerCommand('dungeonsandmarkdown.preview', () => {
+    let previewCommand = vscode.commands.registerCommand('dungeonsandmarkdown.preview', (mdDocument: string | undefined) => {
         let editor = vscode.window.activeTextEditor
-        let text = editor?.document.getText()
+        let text = mdDocument ? mdDocument : editor?.document.getText()
         let res = text? generateHTML(text) : null
         
         const columnToShowIn = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined
